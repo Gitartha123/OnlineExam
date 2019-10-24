@@ -7,7 +7,7 @@
     <div class="a1-half">
         <div class="a1-bar-item">
                     <span class="a1-margin"><b>CLASS TEST</b>
-                        <p ><h4><b style="color: red;">DEPARTMENT OF COMPUTER APPLICATION</b></h4></p>
+                        <p ><h4><b style="color: red;">-DEPARTMENT OF COMPUTER APPLICATION-</b></h4></p>
                     </span>
         </div>
     </div>
