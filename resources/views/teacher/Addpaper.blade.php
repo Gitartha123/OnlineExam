@@ -22,22 +22,25 @@
         <div class="a1-container a1-card a1-padding-4 a1-center " style="width: 60%; height:auto; overflow:hidden;margin: auto; ">
             @include('header')
             <div class="a1-row a1-center a1-red a1-margin"><b><h3>ADD PAPER</h3></b></div>
-            <div class="a1-container a1-padding-4 a1-margin">
-                <table class="a1-table">
+            <div class="a1-container a1-padding-4 a1-margin " >
+                <table class="a1-table" >
                     {!! Form::open(['Route'=>'post.add','method'=>'post']) !!}
                         <tr>
-                            <td>
-                                {!! Form::label('Exam','Select Examination') !!}
+                            <td >
+                                {!! Form::label('Exam','Select Examination:') !!}
                             </td>
                             <td>
                                 <select  name="exam" id="exam" class="form-control" style="width:100%">
                                     <option>Select Examination</option>
+                                    @foreach ($posts as $post)
+                                        <option >{{ $post->examname }}</option>
+                                    @endforeach
                                 </select>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                {!! Form::label('Semester','Select Semester') !!}
+                                {!! Form::label('Semester','Select Semester:') !!}
                             </td>
                             <td>
                                 <select name="semester" class="form-control " style="width:100%">
@@ -50,11 +53,11 @@
                         </tr>
                         <tr>
                             <td>
-                            <label for="subject">Select Subject:</label>
+                            <label for="subject" >Select Subject:</label>
                             </td>
                             <td>
-                            <select name="subject" class="form-control" style="width:100%" id="sub_select" onChange="copyValue()">
-                                <option>--Select Subject--</option>
+                            <select name="subject" class="form-control" style="width:100%" id="sub_select" onChange="copyValue()" id="selectsubject">
+                                <option selected="selected" value=""/>
                             </select>
                             </td>
                         </tr>
@@ -65,6 +68,34 @@
                             </td>
                             <td>
                                 <input type="text" name="sub_code" id="sub_code" class="form-control" style="width: 100%" readonly>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                {!! Form::label('Quetion type','','Question Type') !!}
+                            </td>
+                            <td>
+                                <select name="qtype" class="form-control">
+                                    <option readonly="true">--Select Question type--</option>
+                                    <option>Subjective Question</option>
+                                    <option >Objective Question</option>
+                                </select>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                {!! Form::label('No. of Questions','','noq') !!}
+                            </td>
+                            <td>
+                                {!! Form::text('noq','',['class'=>'form-control','placeholder'=>'Enter number of questions to be set']) !!}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                &nbsp;
+                            </td>
+                            <td>
+                                {!! Form::submit('submit',['class'=>'a1-button   a1-border a1-border-gray a1-right a1-round a1-hover-red']) !!}
                             </td>
                         </tr>
                 {!! Form::close() !!}
