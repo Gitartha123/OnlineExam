@@ -19,5 +19,9 @@ Route::get('teacherpanel','TeacherIndex@TeacherIndex');
 Route::get('dropdownlist','TeacherIndex@getsemester')->name('Addpaper');
 Route::get('dropdownlist/getsubject/{id}','TeacherIndex@getsubject');
 Route::get('/','TeacherIndex@getexam');
+Route::get('hodpanel','HodIndex@HodIndex');
+});
+
+
 
 
